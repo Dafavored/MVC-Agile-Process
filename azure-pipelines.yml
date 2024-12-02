@@ -2,7 +2,9 @@ trigger:
   - main
 
 pool:
-  vmImage: 'macOS-latest'
+  name: 'Default'  # This refers to the agent pool, ensure that your agent is in this pool
+  demands:
+    - agent.name -equals self-hosted-agent  # Replace this with the exact name of your self-hosted agent
 
 steps:
   - task: UseDotNet@2
